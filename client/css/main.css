@@ -643,3 +643,81 @@ body::after {
         top: 20px;
     }
 }
+
+/* ==================== 화면 전환 수정 (중요!) ==================== */
+/* 모든 화면을 숨기고 active 클래스가 있을 때만 표시 */
+
+.screen {
+    display: none !important;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 100vh;
+}
+
+.screen.active {
+    display: block !important;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    animation: screenFadeIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes screenFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 각 화면별 추가 스타일 */
+#loginScreen,
+#mainMenuScreen,
+#shopScreen,
+#collectionScreen,
+#deckBuilderScreen,
+#gameModeScreen,
+#onlineWaitingScreen,
+#battleScreen {
+    width: 100%;
+}
+
+/* 모달들도 기본적으로 숨김 */
+#cardSelectionModal,
+#resultModal,
+#packOpeningModal {
+    display: none !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    align-items: center;
+    justify-content: center;
+}
+
+#cardSelectionModal.active,
+#resultModal.active,
+#packOpeningModal.active {
+    display: flex !important;
+}
+
+/* app-container 수정 */
+.app-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+}

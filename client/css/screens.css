@@ -1,0 +1,548 @@
+/* ==================== 상점 화면 ==================== */
+.shop-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 30px 50px;
+}
+
+.shop-title {
+    font-family: var(--font-display);
+    font-size: 3.5em;
+    font-weight: 900;
+    text-align: center;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 40px;
+    letter-spacing: 5px;
+    filter: drop-shadow(0 0 30px rgba(251, 191, 36, 0.7));
+}
+
+.shop-gold-display {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 30px;
+    background: rgba(20, 24, 41, 0.7);
+    backdrop-filter: blur(20px);
+    border: 2px solid var(--neon-gold);
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(251, 191, 36, 0.3);
+}
+
+.shop-gold-amount {
+    font-family: var(--font-display);
+    font-size: 4em;
+    font-weight: 900;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.7));
+}
+
+.packs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.pack-card {
+    background: rgba(20, 24, 41, 0.7);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 255, 247, 0.3);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.pack-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(0, 255, 247, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.pack-card:hover::before {
+    opacity: 1;
+}
+
+.pack-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 20px 60px rgba(0, 255, 247, 0.4);
+}
+
+.pack-icon {
+    font-size: 5em;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+.pack-name {
+    font-family: var(--font-ui);
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.pack-price {
+    font-family: var(--font-display);
+    font-size: 2em;
+    font-weight: 900;
+    color: var(--neon-gold);
+    margin-bottom: 25px;
+    text-shadow: 0 0 15px rgba(251, 191, 36, 0.6);
+}
+
+.buy-btn {
+    width: 100%;
+    padding: 18px;
+    font-family: var(--font-ui);
+    font-size: 1.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: var(--gradient-neon);
+    color: var(--bg-void);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 10px 30px rgba(0, 255, 247, 0.4);
+}
+
+.buy-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 255, 247, 0.6);
+}
+
+.buy-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-dim);
+}
+
+/* ==================== 컬렉션 화면 ==================== */
+.collection-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 30px 50px;
+}
+
+.collection-title {
+    font-family: var(--font-display);
+    font-size: 3.5em;
+    font-weight: 900;
+    text-align: center;
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 40px;
+    letter-spacing: 5px;
+    filter: drop-shadow(0 0 30px rgba(0, 255, 247, 0.7));
+}
+
+.collection-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.collection-stat {
+    background: rgba(20, 24, 41, 0.7);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 255, 247, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.collection-stat:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 10px 30px rgba(0, 255, 247, 0.3);
+}
+
+.collection-stat-value {
+    font-family: var(--font-display);
+    font-size: 3em;
+    font-weight: 900;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 20px rgba(0, 255, 247, 0.6);
+    margin-bottom: 10px;
+}
+
+.collection-stat-label {
+    font-family: var(--font-ui);
+    font-size: 1.1em;
+    color: var(--text-normal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+/* ==================== 덱 빌더 화면 ==================== */
+.deck-builder-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 100px 30px 50px;
+}
+
+.deck-builder-title {
+    font-family: var(--font-display);
+    font-size: 3.5em;
+    font-weight: 900;
+    text-align: center;
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 40px;
+    letter-spacing: 5px;
+    filter: drop-shadow(0 0 30px rgba(0, 255, 247, 0.7));
+}
+
+.deck-selector {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.deck-slot-btn {
+    padding: 15px 30px;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1.1em;
+    background: rgba(20, 24, 41, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    color: var(--text-bright);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.deck-slot-btn.active {
+    background: var(--gradient-neon);
+    color: var(--bg-void);
+    border-color: transparent;
+    box-shadow: 0 0 30px rgba(0, 255, 247, 0.5);
+}
+
+.deck-slot-btn:hover:not(.active) {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 255, 247, 0.3);
+}
+
+.builder-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.section-title {
+    font-family: var(--font-ui);
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(0, 255, 247, 0.5);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 12px 20px;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    font-size: 0.95em;
+    background: rgba(20, 24, 41, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: var(--text-bright);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.filter-btn.active {
+    background: var(--gradient-neon);
+    color: var(--bg-void);
+    border-color: transparent;
+    box-shadow: 0 0 20px rgba(0, 255, 247, 0.4);
+}
+
+.filter-btn:hover:not(.active) {
+    border-color: var(--neon-cyan);
+}
+
+.builder-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.current-deck-section {
+    background: rgba(20, 24, 41, 0.7);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 255, 247, 0.3);
+    border-radius: 24px;
+    padding: 30px;
+    position: sticky;
+    top: 20px;
+}
+
+.deck-progress {
+    margin-bottom: 25px;
+}
+
+.deck-progress-bar {
+    width: 100%;
+    height: 40px;
+    background: rgba(10, 14, 26, 0.8);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(0, 255, 247, 0.3);
+}
+
+.deck-progress-fill {
+    height: 100%;
+    background: var(--gradient-neon);
+    transition: width 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.2em;
+    color: var(--bg-void);
+}
+
+.deck-cards-list {
+    min-height: 400px;
+    margin-bottom: 20px;
+}
+
+.deck-empty-message {
+    text-align: center;
+    color: var(--text-dim);
+    padding: 50px 20px;
+    font-size: 1.1em;
+}
+
+.deck-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.deck-action-btn {
+    flex: 1;
+    padding: 18px;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.save-deck-btn {
+    background: var(--gradient-neon);
+    color: var(--bg-void);
+    box-shadow: 0 10px 30px rgba(0, 255, 247, 0.4);
+}
+
+.save-deck-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 255, 247, 0.6);
+}
+
+.save-deck-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.clear-deck-btn {
+    background: rgba(236, 72, 153, 0.2);
+    border: 2px solid var(--neon-pink);
+    color: var(--text-bright);
+}
+
+.clear-deck-btn:hover {
+    background: rgba(236, 72, 153, 0.3);
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+}
+
+/* ==================== 게임 모드 선택 ==================== */
+.game-mode-container {
+    max-width: 900px;
+    margin: 120px auto;
+    padding: 0 30px;
+}
+
+.game-mode-title {
+    font-family: var(--font-display);
+    font-size: 3.5em;
+    font-weight: 900;
+    text-align: center;
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 60px;
+    letter-spacing: 5px;
+    filter: drop-shadow(0 0 30px rgba(0, 255, 247, 0.7));
+}
+
+.mode-buttons {
+    display: grid;
+    gap: 30px;
+}
+
+.mode-btn {
+    background: rgba(20, 24, 41, 0.7);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 255, 247, 0.3);
+    border-radius: 24px;
+    padding: 40px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    text-align: center;
+}
+
+.mode-btn:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--neon-cyan);
+    background: rgba(0, 255, 247, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 255, 247, 0.4);
+}
+
+.mode-btn-title {
+    font-family: var(--font-ui);
+    font-size: 2em;
+    font-weight: 900;
+    color: var(--text-bright);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.mode-btn-desc {
+    font-size: 1.1em;
+    color: var(--text-normal);
+}
+
+/* ==================== 온라인 대기 화면 ==================== */
+.online-title {
+    font-family: var(--font-display);
+    font-size: 3em;
+    font-weight: 900;
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 4px;
+    filter: drop-shadow(0 0 30px rgba(0, 255, 247, 0.7));
+}
+
+.room-code-display {
+    font-family: var(--font-display);
+    font-size: 3.5em;
+    font-weight: 900;
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+    margin-bottom: 20px;
+    letter-spacing: 8px;
+}
+
+.online-room-input {
+    margin: 30px 0;
+}
+
+.online-room-input input {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    font-family: var(--font-display);
+    font-size: 2em;
+    font-weight: 900;
+    text-align: center;
+    background: rgba(10, 14, 26, 0.9);
+    border: 2px solid rgba(0, 255, 247, 0.3);
+    border-radius: 16px;
+    color: var(--text-bright);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+
+.online-room-input input:focus {
+    outline: none;
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 30px rgba(0, 255, 247, 0.4);
+}
+
+/* ==================== 반응형 ==================== */
+@media (max-width: 1024px) {
+    .builder-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .current-deck-section {
+        position: relative;
+    }
+}
+
+@media (max-width: 768px) {
+    .shop-title,
+    .collection-title,
+    .deck-builder-title,
+    .game-mode-title {
+        font-size: 2.5em;
+    }
+    
+    .packs-grid,
+    .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .mode-btn {
+        padding: 30px 25px;
+    }
+    
+    .mode-btn-title {
+        font-size: 1.5em;
+    }
+}
